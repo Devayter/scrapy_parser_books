@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 from books.items import BooksItem
+from books.settings import SCROLLS
 
 
 class HitBookSpider(scrapy.Spider):
@@ -31,14 +32,12 @@ class HitBookSpider(scrapy.Spider):
                 'div.Grid-module__gridWrapper_3urZv'
             ))
         )
-        scrols = 0
-        while scrols < 50:
-            scrols += 1
+        for scroll in SCROLLS:
             driver.execute_script(
                 "window.scrollTo(0, document.body.scrollHeight);"
             )
             time.sleep(2)
-            if scrols % 3 == 0:
+            if scroll % 3 == 0:
                 button = driver.find_elements(
                     By.CSS_SELECTOR,
                     'a.Button-module__button_2hpyT'

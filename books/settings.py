@@ -8,7 +8,7 @@ REMOVED_BOOKS = 'removed_books'
 BASE_DIR = Path(__file__).parent
 RESULTS_DIR = BASE_DIR / RESULTS
 
-SCROLLS = 0
+SCROLLS = 50
 
 BOT_NAME = "books"
 
